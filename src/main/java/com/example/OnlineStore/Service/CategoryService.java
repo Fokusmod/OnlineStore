@@ -1,10 +1,11 @@
 package com.example.OnlineStore.Service;
 
 import com.example.OnlineStore.Models.Category;
-import com.example.OnlineStore.Repository.CategoryRepository;
+import com.example.OnlineStore.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,13 +14,11 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public Optional<Category> findById(Long id) {
-        return categoryRepository.findById(id);
+    public List<Category> findAll() {
+       return categoryRepository.findAll();
     }
 
-    public Optional<Category> findByTitle(String title) {
+    public Optional<Category> findByTitle (String title) {
         return categoryRepository.findByTitle(title);
     }
-
-
 }
