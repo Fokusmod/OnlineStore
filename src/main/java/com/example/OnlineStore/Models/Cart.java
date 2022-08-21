@@ -15,20 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
-@Scope("prototype")
-public class Cart implements Serializable {
+@RedisHash("cart")
+public class Cart implements Serializable{
 
+    @Id
     private Long userId;
 
-    private List<CartItem> items = new ArrayList<>();
-
-    public void add(CartItem cartItem){
-        items.add(cartItem);
-    }
+    private List<CartItem> items;
 
 }
