@@ -3,6 +3,7 @@ package com.example.OnlineStore.Service;
 import com.example.OnlineStore.Dto.RegistrationRequest;
 import com.example.OnlineStore.Models.Role;
 import com.example.OnlineStore.Models.User;
+import com.example.OnlineStore.aspect.ExecutionTime;
 import com.example.OnlineStore.repository.RoleRepository;
 import com.example.OnlineStore.repository.UserRepository;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class RegistrationService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-
+    @ExecutionTime
     public void save(RegistrationRequest registrationRequest) {
         System.out.println(registrationRequest);
         User user = new User();
