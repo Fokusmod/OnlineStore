@@ -1,6 +1,7 @@
 package com.example.OnlineStore.Service;
 
 import com.example.OnlineStore.Models.Category;
+import com.example.OnlineStore.aspect.ExecutionTime;
 import com.example.OnlineStore.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,11 @@ import java.util.Optional;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
-
+    @ExecutionTime
     public List<Category> findAll() {
        return categoryRepository.findAll();
     }
-
+    @ExecutionTime
     public Optional<Category> findByTitle (String title) {
         return categoryRepository.findByTitle(title);
     }

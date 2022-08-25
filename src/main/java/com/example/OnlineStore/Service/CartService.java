@@ -4,6 +4,7 @@ import com.example.OnlineStore.Models.Cart;
 import com.example.OnlineStore.Models.CartItem;
 
 
+import com.example.OnlineStore.aspect.ExecutionTime;
 import com.example.OnlineStore.repository.CartRepository;
 import com.example.OnlineStore.repository.ProductRepository;
 import com.example.OnlineStore.repository.UserRepository;
@@ -28,21 +29,24 @@ public class CartService {
     private final ProductRepository productRepository;
 
 
-
+    @ExecutionTime
     @Cacheable(value = "cart", key = "#userId")
     public Cart getCart(Long userId) {
-        Cart cart = cartRepository.findById(userId).orElse(new Cart(userId,new ArrayList<>()));
+        Cart cart = cartRepository.findById(userId).orElse(new Cart(userId, new ArrayList<>()));
         System.out.println(cart);
         return cart;
 
     }
 
+    @ExecutionTime
     @CachePut(value = "cart", key = "#userId")
     public Cart addToCart(Long userId, CartItem cartItem) {
         Cart cart = getCart(userId);
         cart.getItems().add(cartItem);
         return cartRepository.save(cart);
     }
+
+    @ExecutionTime
     @CachePut(value = "cart", key = "#userId")
     public Cart deleteProduct(Long userId, CartItem cartItem) {
         Cart cart = getCart(userId);
