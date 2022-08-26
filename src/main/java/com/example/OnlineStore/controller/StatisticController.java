@@ -1,8 +1,6 @@
 package com.example.OnlineStore.controller;
 
 
-
-
 import com.example.OnlineStore.Models.Statistic;
 import com.example.OnlineStore.Service.StatisticService;
 import lombok.RequiredArgsConstructor;
@@ -21,10 +19,9 @@ public class StatisticController {
 
     private final StatisticService statisticService;
 
-    @CachePut(value = "statistic", key = "1")
     @GetMapping("/serviceStats")
     public Statistic getStatistic() {
-        Statistic statistic = new Statistic(statisticService.getId(), statisticService.getStats());
+        Statistic statistic = new Statistic(1L, statisticService.getStats());
         return statistic;
     }
 }
