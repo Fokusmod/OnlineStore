@@ -19,9 +19,10 @@ import java.util.*;
 public class StatisticService {
 
 
-    private Long id = ReportType.EXECUTION_TIME.getId();
-    private Map<String, Map<String, List<Long>>> stats = new HashMap<>();
+    private Map<String, Map<String, List<Long>>> stats = new HashMap<>(0,1);
     private final Report report;
+
+
 
 }
 

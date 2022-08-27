@@ -57,27 +57,9 @@ public class ServiceExecutionTimeAspect {
             stats.get(className).get(method.getName()).add(result);
         }
         statisticService.setStats(stats);
-            System.out.println(statisticService.getStats());
     }
         return object;
     }
-
-//if (!stats.containsKey(className)) {
-//        stats.put(className, new HashMap<>());
-//        stats.get(className).put(method, new LinkedList<>());
-//        stats.get(className).get(method).add(result);
-//    } else {
-//        if (!stats.get(className).containsKey(method)) {
-//            stats.get(className).put(method, new LinkedList<>());
-//        }
-//        if (stats.get(className).get(method).size() == 10) {
-//            stats.get(className).get(method).remove(0);
-//            stats.get(className).get(method).add(0, result);
-//        } else {
-//            stats.get(className).get(method).add(result);
-//        }
-//    }
-
 
 
 }
