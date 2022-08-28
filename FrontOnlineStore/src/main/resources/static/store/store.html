@@ -1,0 +1,30 @@
+<div>
+    <p></p>
+    <h1>Каталог</h1>
+    <p></p>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Price</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="p in productData.data">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                <button ng-click="navToEditProductPage(p.id)" class="btn btn-primary" type=button>Изменить</button>
+            </td>
+            <td>
+                <button ng-click="deleteProduct(p.id)" class="btn btn-primary" type=button>Удалить</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
